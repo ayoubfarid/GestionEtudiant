@@ -2,17 +2,22 @@ package com.gestion.bean;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
 public class Etudiant {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String Reference;
     private String Nom;
     private Date DateNaissace;
     private String Sexe;
     @ManyToOne
     private Faculte faculte;
+
+    @OneToMany(mappedBy = "etudiant")
+    List<Notes> notes;
     private Long Id;
 
     public Long getId() {

@@ -26,9 +26,14 @@ public class CoursService {
     public  int  save(Cours entity) {
         if (findByReference(entity.getReference())!=null)
             return  -1;
+        if (enseignantService.findByReference(entity.getEnseignant().getReference())!=null){
+            Enseignant enseignant = enseignantService.findByReference(entity.getEnseignant().getReference());
+            entity.setEnseignant(enseignant);
+            coursDao.save(entity);
+            return  0;
+        }
+        return  -2;
 
-        coursDao.save(entity);
-        return  0;
     }
 
     public Cours findByLibelleAndEnseignant(String libelle, Enseignant ens) {
@@ -37,4 +42,5 @@ public class CoursService {
 
     @Autowired
     public CoursDao coursDao;
+    public EnseignantService enseignantService;
 }

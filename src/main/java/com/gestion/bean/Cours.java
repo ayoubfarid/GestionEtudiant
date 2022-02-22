@@ -1,6 +1,7 @@
 package com.gestion.bean;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Cours {
@@ -13,7 +14,8 @@ public class Cours {
     private int HeursTp;
     @ManyToOne
     private Enseignant enseignant;
-
+    @OneToMany(mappedBy = "cours")
+    List<Notes> notes;
     public String getReference() {
         return Reference;
     }

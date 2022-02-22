@@ -4,7 +4,7 @@ import com.gestion.bean.Enseignant;
 import com.gestion.service.EnseignantService;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
+
 import java.util.List;
 
 @RestController

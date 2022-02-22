@@ -2,6 +2,7 @@ package com.gestion.service;
 
 
 import com.gestion.bean.Etudiant;
+import com.gestion.bean.Faculte;
 import com.gestion.dao.EtudiantDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,13 +27,21 @@ public class EtudiantService {
     public int save(Etudiant entity) {
         if (findByReference(entity.getReference())!=null)
             return -1;
-        etudiantDao.save(entity);
-        return 0;
+        if (faculteService.findByReference(entity.getFaculte().getReference())!=null)
+        {
+            Faculte faculte = faculteService.findByReference(entity.getFaculte().getReference());
+            entity.setFaculte(faculte);
+            etudiantDao.save(entity);
+            return 0;
+        }
+        return -2;
+
     }
 
 
     @Autowired
     private EtudiantDao etudiantDao;
+    private FaculteService faculteService;
 }
 
 
