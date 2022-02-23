@@ -42,5 +42,6 @@ public class CoursService {
 
     @Autowired
     public CoursDao coursDao;
+    @Autowired
     public EnseignantService enseignantService;
 }

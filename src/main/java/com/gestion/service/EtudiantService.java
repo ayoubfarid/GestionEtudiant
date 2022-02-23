@@ -41,6 +41,7 @@ public class EtudiantService {
 
     @Autowired
     private EtudiantDao etudiantDao;
+    @Autowired
     private FaculteService faculteService;
 }
 

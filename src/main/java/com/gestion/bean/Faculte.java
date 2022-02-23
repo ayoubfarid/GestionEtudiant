@@ -8,40 +8,33 @@ import javax.persistence.*;
 public class Faculte {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private String Libelle;
+    private String libelle;
 
-    public String getReference() {
-        return Reference;
-    }
 
-    public void setReference(String reference) {
-        Reference = reference;
-    }
-
-    private String Reference;
-    private Long Id;
-
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
+    private String reference;
+    private Long id;
 
     public String getLibelle() {
-        return Libelle;
+        return libelle;
     }
 
     public void setLibelle(String libelle) {
-        Libelle = libelle;
+        this.libelle = libelle;
     }
 
+    public String getReference() {
+        return reference;
+    }
 
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
 
+    public Long getId() {
+        return id;
+    }
 
-
-
-
-
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

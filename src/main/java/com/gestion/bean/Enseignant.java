@@ -6,55 +6,50 @@ import java.util.Date;
 @Entity
 public class Enseignant {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
-    private String Reference;
-    private String Nom;
-    private String Grade;
-    private Date Anciennete;
+    private Long id;
+    private String reference;
+    private String nom;
+    private String grade;
+    private Date anciennete;
+
+
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getReference() {
-        return Reference;
+        return reference;
     }
 
     public void setReference(String reference) {
-        Reference = reference;
+        this.reference = reference;
     }
 
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     public void setNom(String nom) {
-        Nom = nom;
+        this.nom = nom;
     }
 
     public String getGrade() {
-        return Grade;
+        return grade;
     }
 
     public void setGrade(String grade) {
-        Grade = grade;
+        this.grade = grade;
     }
 
     public Date getAnciennete() {
-        return Anciennete;
+        return anciennete;
     }
 
     public void setAnciennete(Date anciennete) {
-        Anciennete = anciennete;
+        this.anciennete = anciennete;
     }
-
-
-
-
-
-
-
 }

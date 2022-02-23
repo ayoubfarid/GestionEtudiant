@@ -1,59 +1,76 @@
 package com.gestion.bean;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name="cours")
 public class Cours {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String Reference;
-    private Long Id;
-    private String Libelle;
-    private int HeursCours;
-    private int HeursTp;
+    private String reference;
+    private Long id;
+    private String libelle;
+    private int heurscours;
+    private int heurstp;
     @ManyToOne
     private Enseignant enseignant;
-    @OneToMany(mappedBy = "cours")
-    List<Notes> notes;
+
+
+   // private List<User> user = new ArrayList<>();
+    //@OneToMany(mappedBy = "cours")
+   @OneToMany( mappedBy="cours")
+    private List<Notes> notes= new ArrayList<>();
+
     public String getReference() {
-        return Reference;
+        return reference;
+    }
+
+    public List<Notes> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Notes> notes) {
+        this.notes = notes;
     }
 
     public void setReference(String reference) {
-        Reference = reference;
+        this.reference = reference;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getLibelle() {
-        return Libelle;
+        return libelle;
     }
 
     public void setLibelle(String libelle) {
-        Libelle = libelle;
+        this.libelle = libelle;
     }
 
-    public int getHeursCours() {
-        return HeursCours;
+    public int getHeurscours() {
+        return heurscours;
     }
 
-    public void setHeursCours(int heursCours) {
-        HeursCours = heursCours;
+    public void setHeurscours(int heurscours) {
+        this.heurscours = heurscours;
     }
 
-    public int getHeursTp() {
-        return HeursTp;
+    public int getHeurstp() {
+        return heurstp;
     }
 
-    public void setHeursTp(int heursTp) {
-        HeursTp = heursTp;
+    public void setHeurstp(int heurstp) {
+        this.heurstp = heurstp;
     }
 
     public Enseignant getEnseignant() {

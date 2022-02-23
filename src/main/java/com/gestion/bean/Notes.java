@@ -8,18 +8,21 @@ import javax.persistence.*;
 public class Notes {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Long id;
     private int note;
+    /*@ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Etudiant etudiant;*/
     @ManyToOne
+    @JoinColumn(name="etudiant_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Etudiant etudiant;
-
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public int getNote() {
@@ -46,9 +49,13 @@ public class Notes {
         this.cours = cours;
     }
 
+    /*@ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Cours cours;*/
+
     @ManyToOne
+    @JoinColumn(name="cours_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Cours cours;
-
 
 }
